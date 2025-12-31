@@ -1,4 +1,4 @@
-pragma solidity ^0.8.26;
+pragma solidity ^0.4.25;
 
 contract ZombieFactory {
 
@@ -30,7 +30,7 @@ contract ZombieFactory {
     }
 
     function createRandomZombie(string _name) public {
-        // empieza aquí
+        require(ownerZombieCount[msg.sender] == 0);
         uint randDna = _generateRandomDna(_name);
         _createZombie(_name, randDna);
     }
